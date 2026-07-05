@@ -21,7 +21,7 @@ When official Codex doctor integration is enabled, Codex CLI may perform its own
 
 Do not include secrets, tokens, private logs, raw `auth.json`, SQLite contents, or session transcripts in public issues.
 
-After the public GitHub repository is created, prefer GitHub private vulnerability reporting / security advisories:
+Prefer GitHub private vulnerability reporting / security advisories:
 
 https://github.com/Ishikawa-Hidekazu/codex-healthkit/security/advisories/new
 

@@ -89,12 +89,18 @@ The repository is now much closer to a normal public OSS repository. It should f
 - a person reporting a bug
 - a person reporting a security concern
 
-## Remaining Public-Launch Steps
+## Completed Public-Launch Steps
 
-- Create the GitHub repository.
-- Push `main`.
-- Confirm README clone URL works.
-- Confirm GitHub Community Standards checklist.
-- Enable GitHub private vulnerability reporting if available.
+- Created the public GitHub repository under `Ishikawa-Hidekazu/codex-healthkit`.
+- Pushed `main`.
+- Confirmed README clone URL works.
+- Confirmed GitHub Community Profile recognizes core public repository files.
+- Enabled GitHub private vulnerability reporting.
+- Enabled secret scanning and push protection.
+- Confirmed public git history uses English commit messages.
+
+## Remaining Alpha Steps
+
+- Run Linux QA before claiming Linux support.
+- Decide whether to tag `v0.1.0`.
 - Watch first issues carefully and tighten templates if people still paste unsafe output.
-

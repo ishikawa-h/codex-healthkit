@@ -13,4 +13,6 @@ This project follows a simple pre-1.0 changelog style. Dates use UTC.
 - Add safety-boundary documentation.
 - Add English and Japanese README files.
 - Add tests and public repository health files.
-
+- Add public English commit-message guidance.
+- Clarify source-only alpha status before tagged releases.
+- Add stronger release-gate secret scanning guidance.

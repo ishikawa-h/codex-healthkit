@@ -34,7 +34,9 @@ Heavy Codex users often need to answer simple operational questions:
 
 ## Status
 
-Early alpha. The first version is intentionally narrow and read-only.
+Source-only alpha. No tagged release has been published yet.
+
+The first version is intentionally narrow and read-only.
 
 Tested on macOS. Linux support is expected but not yet claimed as tested. Windows is not supported by this Bash implementation.
 

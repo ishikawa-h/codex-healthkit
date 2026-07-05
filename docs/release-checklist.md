@@ -2,16 +2,18 @@
 
 Use this checklist before public releases.
 
-## Before First Public Push
+## Initial Public Push
 
-- [ ] Confirm repository name: `Ishikawa-Hidekazu/codex-healthkit`.
-- [ ] Confirm repository visibility is intended to be public.
-- [ ] Re-run local checks.
-- [ ] Confirm README clone URL works after repository creation.
-- [ ] Confirm no credentials, tokens, private paths, or raw local reports are committed.
-- [ ] Confirm public git history contains only files and notes intended for release.
-- [ ] Enable GitHub private vulnerability reporting / security advisories if available.
-- [ ] Confirm GitHub community profile recognizes README, LICENSE, CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, and issue templates.
+Completed for the initial public alpha:
+
+- [x] Confirm repository name: `Ishikawa-Hidekazu/codex-healthkit`.
+- [x] Confirm repository visibility is intended to be public.
+- [x] Re-run local checks.
+- [x] Confirm README clone URL works after repository creation.
+- [x] Confirm no credentials, tokens, private paths, or raw local reports are committed.
+- [x] Confirm public git history contains only files and notes intended for release.
+- [x] Enable GitHub private vulnerability reporting / security advisories if available.
+- [x] Confirm GitHub community profile recognizes core public repository files.
 
 ## Local Checks
 
@@ -22,10 +24,23 @@ tests/run.sh
 git diff --check
 ```
 
-Secret-pattern scan:
+Current-tree secret-pattern scan:
 
 ```bash
-rg -n --hidden -g '!.git/**' -e 'AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|sk-[A-Za-z0-9_-]{20,}|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|xox[baprs]-[0-9A-Za-z-]+' .
+rg -n --hidden -g '!.git/**' -e 'AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|ghp_[A-Za-z0-9_]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9_-]{20,}|Bearer [A-Za-z0-9._~+/=-]{20,}|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|xox[baprs]-[0-9A-Za-z-]+' .
+```
+
+History wording and secret-pattern scan:
+
+```bash
+git grep -n -E 'AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|ghp_[A-Za-z0-9_]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9_-]{20,}|Bearer [A-Za-z0-9._~+/=-]{20,}|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|xox[baprs]-[0-9A-Za-z-]+' $(git rev-list --all)
+git grep -n -E 'internal handoff|business strategy|client workflow|private workflow|事業導線|内部メモ|クライアント|案件名' $(git rev-list --all)
+```
+
+If `gitleaks` is available:
+
+```bash
+gitleaks detect --redact --source .
 ```
 
 ## Before Tagging
@@ -35,6 +50,7 @@ rg -n --hidden -g '!.git/**' -e 'AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|sk-[A-Za
 - [ ] Confirm `SECURITY.md` reporting path is current.
 - [ ] Run macOS checks.
 - [ ] Run Linux checks before claiming Linux support.
+- [ ] Confirm public commit messages are in English.
 - [ ] Create a GitHub release only after the tag and release notes are reviewed.
 
 ## Not Yet In Scope
