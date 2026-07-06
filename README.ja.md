@@ -1,6 +1,8 @@
 # codex-healthkit
 
-日常的にCodexを使う人のための、ローカル環境ヘルスレポートCLIです。
+[![CI](https://github.com/Ishikawa-Hidekazu/codex-healthkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Ishikawa-Hidekazu/codex-healthkit/actions/workflows/ci.yml)
+
+日常的にCodexを使う人のための、メタデータだけを見るローカル環境ヘルスレポートCLIです。
 
 [English](README.md)
 

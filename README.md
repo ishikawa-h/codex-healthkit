@@ -1,6 +1,8 @@
 # codex-healthkit
 
-Local health reports for daily Codex operators.
+[![CI](https://github.com/Ishikawa-Hidekazu/codex-healthkit/actions/workflows/ci.yml/badge.svg)](https://github.com/Ishikawa-Hidekazu/codex-healthkit/actions/workflows/ci.yml)
+
+Metadata-only local health reports for daily Codex operators.
 
 [日本語版](README.ja.md)
 
