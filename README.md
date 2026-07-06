@@ -36,11 +36,11 @@ Heavy Codex users often need to answer simple operational questions:
 
 ## Status
 
-Source-only alpha. No tagged release has been published yet.
+Source-only alpha. Latest tagged release: `v0.1.0-alpha.1`.
 
-The first version is intentionally narrow and read-only.
+The first tagged alpha is intentionally narrow and read-only.
 
-Tested on macOS. Linux support is expected but not yet claimed as tested. Windows is not supported by this Bash implementation.
+Tested on macOS and Linux. Windows is not supported by this Bash implementation.
 
 ## Who It Is For
 

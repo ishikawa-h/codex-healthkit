@@ -62,3 +62,15 @@ gitleaks detect --redact --source .
 - transcript-based usage analysis
 
 Each item above needs a separate safety and release review.
+
+## Release Gate Log
+
+### `v0.1.0-alpha.1` - 2026-07-06
+
+- [x] Updated `CHANGELOG.md`.
+- [x] Confirmed `README.md` and `README.ja.md` match current behavior.
+- [x] Confirmed `SECURITY.md` reporting path is current.
+- [x] Ran macOS checks.
+- [x] Ran Linux checks in GitHub Actions and an Ubuntu 24.04 Docker container.
+- [x] Confirmed public commit messages are in English.
+- [x] Reviewed release notes before creating the GitHub release.

@@ -6,6 +6,11 @@ This project follows a simple pre-1.0 changelog style. Dates use UTC.
 
 ## Unreleased
 
+No changes yet.
+
+## 0.1.0-alpha.1 - 2026-07-06
+
+- Initial source-only alpha release.
 - Initial public repository preparation.
 - Add local metadata-only health report command.
 - Add Markdown and JSON output.

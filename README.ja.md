@@ -36,11 +36,11 @@ Codexを日常的に使っていると、次のような確認が必要になる
 
 ## ステータス
 
-source-only alphaです。tag付きreleaseはまだ公開していません。
+source-only alphaです。最新のtag付きreleaseは `v0.1.0-alpha.1` です。
 
-最初のバージョンは、意図的に狭く、読み取り専用にしています。
+最初のtag付きalphaは、意図的に狭く、読み取り専用にしています。
 
-macOSで検証済みです。Linuxは対応想定ですが、まだ実機検証済みとは言いません。WindowsはこのBash実装では未対応です。
+macOSとLinuxで検証済みです。WindowsはこのBash実装では未対応です。
 
 ## 誰のためのものか
 
