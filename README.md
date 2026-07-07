@@ -14,6 +14,8 @@ If you are looking for a Codex CLI health check, a safe-to-share Codex local rep
 
 By default, it performs local file metadata checks only. It does **not** read credentials, token files, cookies, SQLite contents, or session transcript contents.
 
+`codex-healthkit` is not a daemon, dashboard, live monitor, or session recorder. It does not require a background service or web UI, and it does not watch or record Codex sessions. It creates an on-demand, metadata-only CLI report that you can review before sharing.
+
 Not affiliated with OpenAI.
 
 ## At A Glance

@@ -14,6 +14,8 @@ Codex CLI health check、Codexのローカル環境点検、sessionやSQLite WAL
 
 デフォルトではローカルファイルのメタデータだけを確認します。認証情報、token、cookie、SQLiteの中身、session transcriptの中身は読みません。
 
+`codex-healthkit` は、daemon、dashboard、常駐監視、session recorderではありません。background serviceやWeb UIは不要で、Codex sessionを監視・記録しません。必要な時にだけ、共有前に自分で確認できるmetadata-onlyのCLI reportを作ります。
+
 OpenAI公式のプロジェクトではありません。
 
 ## まず見るところ
