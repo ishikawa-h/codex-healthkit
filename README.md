@@ -8,25 +8,42 @@ Metadata-only OpenAI Codex CLI health checks for sessions, SQLite WAL, `codex do
 
 [日本語版](README.ja.md)
 
-`codex-healthkit` is a small CLI tool for people who use Codex every day and want a safe, reviewable local environment report before debugging, opening an issue, or asking for help.
+`codex-healthkit` is an on-demand CLI health report for daily Codex users. It checks local session and SQLite WAL metadata before debugging, opening an issue, or asking for help.
 
-If you are looking for a Codex CLI health check, a safe-to-share Codex local report, or a quick way to inspect session and SQLite WAL metadata, start here.
+By default, it does **not** execute `codex` or read credentials, token files, cookies, SQLite contents, or session transcript contents. It is not a daemon, dashboard, live monitor, or session recorder, and it does not require a background service or web UI. Not affiliated with OpenAI.
 
-By default, it performs local file metadata checks only. It does **not** read credentials, token files, cookies, SQLite contents, or session transcript contents.
+## 30-Second Quick Start
 
-`codex-healthkit` is not a daemon, dashboard, live monitor, or session recorder. It does not require a background service or web UI, and it does not watch or record Codex sessions. It creates an on-demand, metadata-only CLI report that you can review before sharing.
+Default mode needs only Bash and standard Unix tools. It does not execute
+`codex`.
 
-Not affiliated with OpenAI.
+```bash
+git clone --depth 1 https://github.com/Ishikawa-Hidekazu/codex-healthkit.git
+cd codex-healthkit
+./bin/codex-healthkit check
+```
 
-## At A Glance
+The command prints a reviewable Markdown health report to stdout. It does not
+install a daemon, modify Codex state, or upload the report.
 
-| Need | Command |
-| --- | --- |
-| Safest first check | `./bin/codex-healthkit check` |
-| Machine-readable report | `./bin/codex-healthkit check --json` |
-| Compare with a previous report | `./bin/codex-healthkit check --json --compare before.json` |
-| Include Codex CLI version | `./bin/codex-healthkit check --with-codex-version` |
-| Include official doctor summary | `./bin/codex-healthkit check --with-codex-doctor` |
+## What You Get
+
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/source/health-report-mobile.svg">
+  <img src="assets/source/health-report-overview.svg" alt="Fixture-only codex-healthkit output showing a default metadata-only health report and an explicit before-and-after comparison without credentials, SQLite contents, transcript contents, or uploads.">
+</picture>
+
+[View the public-safe text sample](examples/report.redacted.md) ·
+[View the reproducible visual sources](assets/source/README.md)
+
+## Choose The Narrowest Mode
+
+| Mode | Use it for | Boundary |
+| --- | --- | --- |
+| Health report | `./bin/codex-healthkit check` | Local metadata only; does not execute `codex` |
+| Before / after | `./bin/codex-healthkit check --compare before.json` | Compares one explicit health report; no automatic history |
+| Optional doctor | `./bin/codex-healthkit check --with-codex-doctor` | Explicitly runs official `codex doctor --json`; may perform provider reachability checks |
+| JSON output | Add `--json` to a health report or comparison | Same data in a machine-readable format |
 
 Start with the default check. It is the narrowest mode and does not execute `codex`.
 
@@ -46,6 +63,8 @@ Heavy Codex users often need to answer simple operational questions:
 Source-only alpha. Latest tagged release: `v0.1.0-alpha.1`.
 
 The first tagged alpha is intentionally narrow and read-only.
+The `main` branch may contain reviewed improvements added after that tag. For
+the published source revision, clone with `--branch v0.1.0-alpha.1 --depth 1`.
 
 Tested on macOS and Linux. Windows is not supported by this Bash implementation.
 
@@ -60,15 +79,9 @@ Tested on macOS and Linux. Windows is not supported by this Bash implementation.
 
 It is especially useful before opening an issue, comparing local state over time, or asking another developer to help debug a local setup.
 
-## Quick Start
+## Common Commands
 
-```bash
-git clone https://github.com/Ishikawa-Hidekazu/codex-healthkit.git
-cd codex-healthkit
-./bin/codex-healthkit check
-```
-
-JSON output:
+JSON health report:
 
 ```bash
 ./bin/codex-healthkit check --json
@@ -100,6 +113,14 @@ mkdir -p ~/.local/bin
 ln -sf "$PWD/bin/codex-healthkit" ~/.local/bin/codex-healthkit
 codex-healthkit check
 ```
+
+Uninstall the local command without deleting reports you chose to save:
+
+```bash
+rm ~/.local/bin/codex-healthkit
+```
+
+Delete the cloned source directory separately when you no longer need it.
 
 ## What It Checks
 
@@ -244,8 +265,13 @@ See [docs/safety-boundary.md](docs/safety-boundary.md).
 
 Default mode:
 
+- macOS or Linux; Windows is not supported by this Bash implementation
 - Bash
 - standard Unix tools: `find`, `du`, `stat`, `awk`, `wc`, `tr`
+
+Comparison mode:
+
+- `jq`
 
 Optional doctor mode:
 
@@ -257,8 +283,8 @@ Optional doctor mode:
 Run checks:
 
 ```bash
-bash -n bin/codex-healthkit tests/run.sh tests/fixtures/fake-bin/codex
-shellcheck bin/codex-healthkit tests/run.sh tests/fixtures/fake-bin/codex
+bash -n bin/codex-healthkit scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
+shellcheck bin/codex-healthkit scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
 tests/run.sh
 ```
 
@@ -269,6 +295,17 @@ If something looks wrong:
 1. Run the default check first.
 2. Review and redact the report.
 3. Open an issue using the closest issue template.
+
+Quick troubleshooting:
+
+```bash
+./bin/codex-healthkit --help
+bash --version
+command -v find du stat awk wc tr
+```
+
+If `--compare` or `--with-codex-doctor` is unavailable, also check
+`command -v jq`. Doctor mode additionally requires the official `codex` CLI.
 
 Please do not paste credentials, tokens, cookies, private paths, raw session transcripts, or raw `codex doctor` output into public issues.
 
@@ -312,10 +349,10 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 Near-term:
 
-- public v0.1 release
-- Linux runtime verification
+- continue daily use of the source-only alpha
 - more fixture-based tests
 - clearer report examples
+- decide the next alpha only after practical improvements accumulate
 
 Out of scope until a new safety review:
 
