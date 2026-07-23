@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">codex-healthkit explicit comparison demo</title>
+  <desc id="desc">Synthetic terminal output compares a user-selected previous report with current metadata.</desc>
+  <rect width="1200" height="675" fill="#0b1117"/>
+  <rect x="48" y="42" width="1104" height="590" rx="8" fill="#121b23" stroke="#33434f" stroke-width="2"/>
+  <circle cx="82" cy="75" r="7" fill="#ff7b72"/><circle cx="106" cy="75" r="7" fill="#ffc857"/><circle cx="130" cy="75" r="7" fill="#67d391"/>
+  <text x="600" y="83" text-anchor="middle" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700">codex-healthkit • fixture-only demo</text>
+  <text x="86" y="142" fill="#67d391" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">$ codex-healthkit check --json &gt; before.json</text>
+  <text x="86" y="190" fill="#67d391" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700">$ codex-healthkit check --compare before.json</text>
+  <text x="86" y="250" fill="#f4f7f8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">Previous Report Comparison</text>
+  <text x="86" y="300" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21">sessions count       5 → 6       +1</text>
+  <text x="86" y="342" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21">archived size      720K → 860K   +140K</text>
+  <text x="86" y="384" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21">SQLite WAL          96K → 128K   +32K</text>
+  <text x="86" y="448" fill="#8fd5f1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">Explicit input • no automatic history</text>
+  <text x="86" y="572" fill="#7f919d" font-family="Arial, sans-serif" font-size="20" font-weight="700">8–16 seconds • before / after</text>
+</svg>
