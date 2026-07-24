@@ -6,6 +6,8 @@ This project follows a simple pre-1.0 changelog style. Dates use UTC.
 
 ## Unreleased
 
+- Add a fixture-only 24-second terminal demo.
+- Add three real-world use cases and explicit known limitations.
 - Add fixture-only responsive README visuals and a reproducible Social Preview candidate.
 - Clarify the 30-second quick start, mode boundaries, uninstall steps, dependencies, and troubleshooting.
 - Add explicit `--compare <previous-report.json>` metadata comparison mode.

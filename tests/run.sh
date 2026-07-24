@@ -21,6 +21,17 @@ CODEX_HOME="$FIXTURE_HOME" CODEX_SQLITE_HOME="$FIXTURE_HOME" \
 
 grep -q "auth files read: \`no\`" "$markdown_report"
 grep -q "SQLite contents read: \`no\`" "$markdown_report"
+demo_sources=(
+  "$ROOT_DIR/assets/source/terminal-demo.svg"
+  "$ROOT_DIR/assets/source/terminal-demo-compare.svg"
+  "$ROOT_DIR/assets/source/terminal-demo-boundary.svg"
+)
+grep -q 'width="1200" height="675"' "${demo_sources[@]}"
+grep -q 'fixture-only demo' "${demo_sources[@]}"
+if grep -Eq '/Users/|/home/|auth\\.json|token\\.json|BEGIN .*PRIVATE KEY' \
+  "${demo_sources[@]}"; then
+  exit 1
+fi
 
 CODEX_HOME="$FIXTURE_HOME" CODEX_SQLITE_HOME="$FIXTURE_HOME" \
   "$ROOT_DIR/bin/codex-healthkit" check --json >"$json_report"

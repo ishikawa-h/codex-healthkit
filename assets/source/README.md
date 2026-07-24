@@ -22,6 +22,21 @@ Generated files:
 - `assets/health-report-mobile.png` — mobile README visual, 750 x 1200
 - `assets/social-preview.png` — GitHub Social Preview candidate, 1280 x 640
 
+Terminal demo sources:
+
+- `assets/source/terminal-demo.svg`
+- `assets/source/terminal-demo-compare.svg`
+- `assets/source/terminal-demo-boundary.svg`
+
+Render the three-frame, 24-second GIF with:
+
+```bash
+scripts/render-demo.sh
+```
+
+Each frame is 1200 x 675 and remains visible for eight seconds. All text and
+values are synthetic.
+
 The README links directly to these SVG sources for crisp text and uses a
 responsive `picture` element to choose the mobile visual at 600 pixels or
 narrower. The generated PNGs are review and social-preview artifacts. The

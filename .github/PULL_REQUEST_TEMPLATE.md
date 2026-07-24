@@ -7,8 +7,8 @@ Describe what changed and why.
 Please include the commands you ran:
 
 ```bash
-bash -n bin/codex-healthkit scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
-shellcheck bin/codex-healthkit scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
+bash -n bin/codex-healthkit scripts/render-demo.sh scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
+shellcheck bin/codex-healthkit scripts/render-demo.sh scripts/render-visuals.sh tests/run.sh tests/fixtures/fake-bin/codex
 tests/run.sh
 ```
 

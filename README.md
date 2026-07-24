@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/Ishikawa-Hidekazu/codex-healthkit)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/Ishikawa-Hidekazu/codex-healthkit?include_prereleases)](https://github.com/Ishikawa-Hidekazu/codex-healthkit/releases)
 
-Metadata-only OpenAI Codex CLI health checks for sessions, SQLite WAL, `codex doctor`, and redacted local reports.
+Codex can keep working while local sessions and SQLite WAL quietly grow; `codex-healthkit` shows that growth without opening credentials, databases, or transcript contents.
 
 [日本語版](README.ja.md)
 
@@ -25,6 +25,13 @@ cd codex-healthkit
 
 The command prints a reviewable Markdown health report to stdout. It does not
 install a daemon, modify Codex state, or upload the report.
+
+## 24-Second Terminal Demo
+
+![A 24-second fixture-only terminal demo showing a default health report, an explicit before-and-after comparison, and the data codex-healthkit does not read.](assets/terminal-demo.gif)
+
+The demo uses synthetic fixture values. It does not contain a real Codex home,
+account, path, report, database, or transcript.
 
 ## What You Get
 
@@ -78,6 +85,12 @@ Tested on macOS and Linux. Windows is not supported by this Bash implementation.
 - care about avoiding credential, transcript, or account-data exposure
 
 It is especially useful before opening an issue, comparing local state over time, or asking another developer to help debug a local setup.
+
+## Three Real-World Uses
+
+1. **Before and after a Codex CLI update:** save one JSON report, update normally, then compare WAL and session metadata without automatic history.
+2. **Daily operational review:** notice whether active sessions, archived sessions, quarantine, or SQLite files are growing before deciding whether deeper investigation is needed.
+3. **Preparing a support request:** generate a small report, review it yourself, and share only the redacted metadata that is relevant to the issue.
 
 ## Common Commands
 
@@ -260,6 +273,16 @@ See [docs/safety-boundary.md](docs/safety-boundary.md).
 - read browser profiles
 - upload reports
 - run background telemetry
+
+## Known Limitations
+
+- It does not explain the cause of growth or repair Codex state.
+- It does not delete, archive, compact, or clean up files.
+- It does not estimate account usage, quota, or rate limits.
+- It does not keep automatic history; comparisons require an explicit previous JSON report.
+- Default checks are size/count observations, not SQLite integrity checks.
+- Windows is not supported by this Bash implementation.
+- Optional official doctor behavior can change with the installed Codex CLI.
 
 ## Requirements
 

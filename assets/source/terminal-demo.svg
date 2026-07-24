@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">codex-healthkit 24-second terminal demo</title>
+  <desc id="desc">Three synthetic terminal scenes show a default health report, an explicit comparison, and the privacy boundary. Each scene remains visible for eight seconds.</desc>
+  <rect width="1200" height="675" fill="#0b1117"/>
+  <rect x="48" y="42" width="1104" height="590" rx="8" fill="#121b23" stroke="#33434f" stroke-width="2"/>
+  <circle cx="82" cy="75" r="7" fill="#ff7b72"/>
+  <circle cx="106" cy="75" r="7" fill="#ffc857"/>
+  <circle cx="130" cy="75" r="7" fill="#67d391"/>
+  <text x="600" y="83" text-anchor="middle" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700">codex-healthkit • fixture-only demo</text>
+
+  <g id="scene-check">
+    <text x="86" y="142" fill="#67d391" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="25" font-weight="700">$ codex-healthkit check</text>
+    <text x="86" y="194" fill="#f4f7f8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23"># codex-healthkit report</text>
+    <text x="86" y="240" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">summary: ok</text>
+    <text x="86" y="282" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">sessions: 6 files, 1.4M</text>
+    <text x="86" y="324" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">archived sessions: 3 files, 860K</text>
+    <text x="86" y="366" fill="#c2cdd4" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">SQLite WAL: 128K</text>
+    <text x="86" y="430" fill="#8fd5f1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">Local metadata only • codex not executed</text>
+    <text x="86" y="572" fill="#7f919d" font-family="Arial, sans-serif" font-size="20" font-weight="700">0–8 seconds • default check</text>
+  </g>
+
+</svg>
